@@ -3,6 +3,22 @@ import Navbar from "./components/Navbar";
 import {News, ListNews} from "./components/News";
 import jateng from "./assets/images/Central_Java.png";
 import {Button} from "./components/Button";
+import {Footer} from "./components/Footer";
+import {Fax, Home, Info, Mail, Megaphone, Phone, Pin, Profile, Webs} from "./components/Icons";
+import {Program} from "./components/Program";
+
+const icons = {
+    pin: <Pin className="fill-white pr-4" size={24}/>,
+    phone: <Phone className="fill-white pr-4" size={18}/>,
+    mail: <Mail className="fill-white" size={18}/>,
+    fax: <Fax className="fill-white text-white stroke-white" size={18}/>,
+    web: <Webs className="fill-white" size={18}/>,
+
+    home: <Home className="fill-white" size={86}/>,
+    profile: <Profile className="fill-white" size={86}/>,
+    mphone: <Megaphone className="fill-white" size={86}/>,
+    info: <Info className="fill-white" size={86}/>
+};
 
 function App() {
     return (
@@ -15,11 +31,11 @@ function App() {
                         className={"flex flex-col gap-4 mx-auto w-7/12 font-cera text-white text-5xl text-center font-bold"}>
                         <span>Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah</span>
                         <span
-                            className={"mx-auto bg-blue-600 text-white font-cera px-4 py-1 w-fit rounded-full text-base font-medium"}>Menuju Jawa Tengah Sejahtera dan Berdikari</span>
+                            className={"mx-auto bg-indigo-600 text-white font-cera px-4 py-1 w-fit rounded-full text-base font-medium"}>Menuju Jawa Tengah Sejahtera dan Berdikari</span>
                     </div>
                 </div>
             </div>
-            <div className={"py-20 w-10/12"}>
+            <section className={"py-20 w-10/12"}>
                 <div className={"flex items-center gap-12"}>
                     <div className={"flex-grow"}>
                         <div className={"flex gap-4 items-center mb-4"}>
@@ -54,12 +70,26 @@ function App() {
                                           date={item.date}/>
                             ))}
                         </div>
-                        <Button className={"w-full mt-4 border bg-zinc-100 hover:bg-zinc-200 text-zinc-700 capitalize"} variant={"secondary"}>
+                        <Button className={"w-full mt-4 border bg-zinc-100 hover:bg-zinc-200 text-zinc-700 capitalize"}
+                                variant={"secondary"}>
                             Lihat berita lainnya
                         </Button>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section className={"font-cera flex gap-6 bg-zinc-100 border rounded-xl p-4"}>
+                {programItem.map((item) => (
+                    <Program title={item.title} icon={item.icon}/>
+                ))}
+            </section>
+            <section>
+                {/*Layanan*/}
+            </section>
+            <section>
+                {/*Social*/}
+            </section>
+            <Footer items={footerItem}/>
+
         </div>
     );
 }
@@ -152,3 +182,89 @@ const listNews = [
         date: "June 28, 2022"
     },
 ]
+
+
+
+const footerItem = [
+    {
+        pos: 0,
+        title: "DINAS PENDIDIKAN DAN KEBUDAYAAN PROVINSI JAWA TENGAH ",
+        desc: "Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah merupakan unsur pelaksana pemerintahan Bidang Pendidikan dan Kebudayaan yang menjadi kewenangan daerah. Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah dipimpin oleh Kepala Dinas yang berkedudukan di bawah dan bertanggung jawab kepada Gubernur melalui Sekretaris Daerah. ",
+        list: [
+            {
+                data: "Jl. Pemuda No.134, Sekayu, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah ",
+                icon: icons.pin
+            },
+            {
+                data: " (024) 3515301 ",
+                icon: icons.phone
+            },
+            {
+                data: "disdikbud@jatengprov.go.id ",
+                icon: icons.mail
+            },
+            {
+                data: "(024) 356 5451 ",
+                icon: icons.fax
+            },
+            {
+                data: "http://www.pdkjateng.go.id",
+                icon: icons.web
+            },
+        ]
+    },
+    {
+        pos: 1,
+        title: "WAKTU LAYANAN",
+        desc: "",
+        list: [
+            "Senin – Jumat: 08.00 sd 15.00",
+            "Sabtu – Minggu: Libur",
+            "Hari Libur Nasional: Libur"
+        ]
+    },
+    {
+        pos: 1,
+        title: "KATEGORI",
+        desc: "",
+        list: [
+            "Agenda Kegiatan Dinas (5) ",
+            "Berita Pendidikan (42) ",
+            "Berita PPDB Jawa Tengah (11) ",
+            "Informasi (9) ",
+            "Kalender Pendidikan (1) "
+        ]
+    },
+    {
+        pos: 2,
+        title: "STATISTIK PENGUNJUNG",
+        desc: "",
+        list: [
+            "Today's Visits: 614",
+            "Yesterday's Visits: 1,517",
+            "Last 7 Days Visits: 6,854",
+            "Last 30 Days Visits: 24,262",
+            "Total Visits: 744,780"
+        ]
+    }
+]
+
+const programItem = [
+    {
+        title: "Cabang Dinas dan UPT",
+        icon: icons.home
+    },
+    {
+        title: "PPDB",
+        icon: icons.profile
+    },
+    {
+        title: "Laporgub",
+        icon: icons.mphone
+    },
+    {
+        title: "PPID",
+        icon: icons.info
+    },
+]
+

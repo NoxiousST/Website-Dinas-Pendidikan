@@ -1,6 +1,4 @@
 import jateng from '../assets/images/Central_Java.png'
-
-import {Children} from 'react';
 import {Button} from "./Button";
 
 export default function Navbar({navigation}) {
