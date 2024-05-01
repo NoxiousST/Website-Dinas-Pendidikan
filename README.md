@@ -3,4 +3,4 @@
 
 > [!NOTE]
 > Project disusun oleh:
-> Daniel Kristian J
+> **Daniel Kristian J**
