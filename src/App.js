@@ -92,14 +92,14 @@ function App() {
             </section>
 
             {/* Section 4 | Layanan */}
-            <section className={"flex px-32 h-[80vh] items-center"}>
+            <section className={"flex px-32 h-screen items-center"}>
                 <div className={"flex gap-16"}>
                     <div className={"w-8/12"}>
                         <div className={"flex items-center gap-4 font-cera mb-4"}>
                             <h1 className={"text-2xl font-bold"}>Link Layanan Website</h1>
                             <span className={"border-y-2 border-zinc-400 h-1 flex-grow"}></span>
                         </div>
-                        <div className={"bg-zinc-50 p-6 border-2 rounded-xl flex flex-wrap gap-4 justify-between"}>
+                        <div className={"bg-zinc-50 p-6 border-2 rounded-xl flex flex-wrap gap-4 justify-center"}>
                             {layananItem.map((item) => (
                                 <Layanan classname={item.class} image={item.logo} title={item.title}
                                          detail={item.detail}/>
