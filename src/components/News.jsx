@@ -15,7 +15,7 @@ export function News({className, image, title, description, date, comments}) {
             <div className={"line-clamp-3 text-sm"}>
                 {description}
             </div>
-            <div className={"bg-indigo-600 text-white text-xs font-cera px-2 py-1 w-fit rounded-full"}>
+            <div className={"bg-zinc-800 text-white text-xs font-cera px-2 py-1 w-fit rounded-full"}>
                 Berita Pendidikan
             </div>
         </div>

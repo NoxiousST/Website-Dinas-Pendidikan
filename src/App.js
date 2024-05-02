@@ -1,11 +1,14 @@
 import logo from './logo.svg';
+import jateng from "./assets/images/Central_Java.png";
+import twh from "./assets/images/TWH.png"
+
 import Navbar from "./components/Navbar";
 import {News, ListNews} from "./components/News";
-import jateng from "./assets/images/Central_Java.png";
 import {Button} from "./components/Button";
 import {Footer} from "./components/Footer";
 import {Fax, Home, Info, Mail, Megaphone, Phone, Pin, Profile, Webs} from "./components/Icons";
 import {Program} from "./components/Program";
+import {Layanan} from "./components/Layanan";
 
 const icons = {
     pin: <Pin className="fill-white pr-4" size={24}/>,
@@ -14,16 +17,18 @@ const icons = {
     fax: <Fax className="fill-white text-white stroke-white" size={18}/>,
     web: <Webs className="fill-white" size={18}/>,
 
-    home: <Home className="fill-white" size={86}/>,
-    profile: <Profile className="fill-white" size={86}/>,
-    mphone: <Megaphone className="fill-white" size={86}/>,
-    info: <Info className="fill-white" size={86}/>
+    home: <Home className="fill-white group-hover:fill-black" size={86}/>,
+    profile: <Profile className="fill-white group-hover:fill-black" size={86}/>,
+    mphone: <Megaphone className="fill-white group-hover:fill-black" size={86}/>,
+    info: <Info className="fill-white group-hover:fill-black" size={86}/>
 };
 
 function App() {
     return (
         <div className={"h-full flex flex-col items-center"}>
             <Navbar navigation={nav}></Navbar>
+
+            {/* Section 1 | Banner */}
             <div className={"mt-20 bg-hero-pattern w-screen bg-no-repeat bg-cover"}>
                 <div className={"py-16 bg-gradient-to-b from-black/5 to-black/60"}>
                     <img className={"mx-auto w-32"} src={jateng} alt={"Logo Jawa Tengah"}/>
@@ -31,10 +36,12 @@ function App() {
                         className={"flex flex-col gap-4 mx-auto w-7/12 font-cera text-white text-5xl text-center font-bold"}>
                         <span>Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah</span>
                         <span
-                            className={"mx-auto bg-indigo-600 text-white font-cera px-4 py-1 w-fit rounded-full text-base font-medium"}>Menuju Jawa Tengah Sejahtera dan Berdikari</span>
+                            className={"mx-auto bg-zinc-800 text-white font-cera px-4 py-1 w-fit rounded-full text-base font-medium"}>Menuju Jawa Tengah Sejahtera dan Berdikari</span>
                     </div>
                 </div>
             </div>
+
+            {/* Section 2 | Berita */}
             <section className={"py-20 w-10/12"}>
                 <div className={"flex items-center gap-12"}>
                     <div className={"flex-grow"}>
@@ -55,8 +62,7 @@ function App() {
                                 <News
                                     className={"w-60 hover:bg-zinc-50 border-2 border-transparent hover:border-border box-border p-2 rounded-xl"}
                                     image={item.image} title={item.title} description={item.description}
-                                    date={item.date}
-                                    comments={item.comments}/>
+                                    date={item.date} comments={item.comments}/>
                             ))}
                         </div>
                     </div>
@@ -77,19 +83,56 @@ function App() {
                     </div>
                 </div>
             </section>
+
+            {/* Section 3 | Program */}
             <section className={"font-cera flex gap-6 bg-zinc-100 border rounded-xl p-4"}>
                 {programItem.map((item) => (
                     <Program title={item.title} icon={item.icon}/>
                 ))}
             </section>
-            <section>
-                {/*Layanan*/}
-            </section>
-            <section>
-                {/*Social*/}
-            </section>
-            <Footer items={footerItem}/>
 
+            {/* Section 4 | Layanan */}
+            <section className={"flex px-32 h-[80vh] items-center"}>
+                <div className={"flex gap-16"}>
+                    <div className={"w-8/12"}>
+                        <div className={"flex items-center gap-4 font-cera mb-4"}>
+                            <h1 className={"text-2xl font-bold"}>Link Layanan Website</h1>
+                            <span className={"border-y-2 border-zinc-400 h-1 flex-grow"}></span>
+                        </div>
+                        <div className={"bg-zinc-50 p-6 border-2 rounded-xl flex flex-wrap gap-4 justify-between"}>
+                            {layananItem.map((item) => (
+                                <Layanan classname={item.class} image={item.logo} title={item.title}
+                                         detail={item.detail}/>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={"font-cera w-4/12"}>
+                        <div>
+                            <h1 className={"text-lg font-semibold"}>Informasi Penting</h1>
+                        </div>
+                        <div className={"flex flex-col gap-4 mt-8"}>
+                            <ListNews className={""}
+                                      image={"https://www.pdkjateng.go.id/wp-content/uploads/2023/06/Feeds-2023-150x150.png"}
+                                      title={"Kalender Pendidikan 2023/2024"} date={"June 8, 2023"}/>
+                            <ListNews className={""}
+                                      image={"https://www.pdkjateng.go.id/wp-content/uploads/2023/03/WhatsApp-Image-2023-03-09-at-13.48.41-150x150.jpeg"}
+                                      title={"Pengumuman Hasil Seleksi Pasca Wawancara Calon Anggota Dewan Pendidikan Provinsi Jawa Tengah Tahun 2023-2027"}
+                                      date={"March 9, 2023"}/>
+                            <ListNews className={""}
+                                      image={"https://www.pdkjateng.go.id/wp-content/uploads/2023/02/Jadwal-Seleksi-Wawancara-Calon-Dewan-Pendidikan-2023-2027-150x150.png"}
+                                      title={"Jadwal Seleksi Wawancara Calon Anggota Dewan Pendidikan Provinsi Jawa Tengah Periode Tahun 2023-2027"}
+                                      date={"February 24, 2023"}/>
+                            <Button className={"w-full mt-4 border bg-zinc-100 hover:bg-zinc-200 text-zinc-700 capitalize"}
+                                    variant={"secondary"}>
+                                Lihat informasi lainnya
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 5 | Footer */}
+            <Footer items={footerItem}/>
         </div>
     );
 }
@@ -184,7 +227,6 @@ const listNews = [
 ]
 
 
-
 const footerItem = [
     {
         pos: 0,
@@ -266,5 +308,48 @@ const programItem = [
         title: "PPID",
         icon: icons.info
     },
+]
+
+const layananItem = [
+    {
+        logo: jateng,
+        title: "Laporgub",
+        detail: "Provinsi Jawa Tengah"
+    },
+    {
+        logo: jateng,
+        title: "Tanggap Covid-19",
+        detail: "Provinsi Jawa Tengah"
+    },
+    {
+        logo: jateng,
+        title: "Portal Pemprov",
+        detail: "Jawa Tengah"
+    },
+    {
+        logo: twh,
+        title: "Portal Resmi Kembdikbudristek",
+        detail: ""
+    },
+    {
+        logo: twh,
+        title: "Data Pokok Pendidikan",
+        detail: "DIKDASMEN KEMDIKBUDRISTEK"
+    },
+    {
+        logo: twh,
+        title: "Dirjen Vokasi",
+        detail: "KEMENDIKBUDRISTEK"
+    },
+    {
+        logo: twh,
+        title: "pdsp",
+        detail: "KEMDIKBUDRISTEK"
+    },
+    {
+        logo: twh,
+        title: "bos",
+        detail: "KEMDIKBUDRISTEK"
+    }
 ]
 
